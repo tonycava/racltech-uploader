@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        background-color: #1f2029;
+        min-height: 100vh;
+    }
+
+    :root {
+        --color-primary: #E3B13A;
+        --color-secondary: #1E1E1E;
+    }
+}
+
+* {
+    font-family: Poppins-regular, ubuntu, sans-serif;
+    box-sizing: border-box;
+}
