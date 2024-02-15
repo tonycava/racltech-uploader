@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PageServerData, SubmitFunction } from './$types';
+	import type { PageServerData, SubmitFunction, ActionData } from './$types';
 	import { applyAction, enhance } from '$app/forms';
 	import { INPUT } from '$lib/utils';
 
@@ -14,9 +14,7 @@
 	};
 
 	export let data: PageServerData;
-	export let form;
-
-	$: console.log(data);
+	export let form: ActionData;
 </script>
 
 <div
@@ -30,7 +28,7 @@
     use:enhance={handleSubmit}
     method="POST"
     enctype="multipart/form-data"
-    action="?/upload" class="form"
+    class="absolute inset-1 rounded-lg bg-[#28292d] z-10 gap-2 flex justify-center items-center flex-col"
   >
     <div class="flex flex-col mb-6">
       <label
@@ -63,38 +61,3 @@
     {/if}
   </form>
 </div>
-
-
-<style>
-    .form {
-        position: absolute;
-        inset: 2px;
-        border-radius: 8px;
-        background-color: #28292d;
-        z-index: 10;
-        gap: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .inputBox {
-        position: relative;
-        width: 300px;
-        margin-top: 25px;
-    }
-
-    .inputBox input {
-        position: relative;
-        width: 100%;
-        padding-inline: 5px;
-        background: transparent;
-        outline: none;
-        font-size: 1.5em;
-        letter-spacing: 0.05em;
-        z-index: 10;
-        color: #E3B13A;
-        border: 2px solid #E3B13A;
-    }
-</style>
